@@ -10,8 +10,8 @@ import {
 import { GitHub, LinkedIn } from "@mui/icons-material";
 import { MdDownload } from "react-icons/md";
 import { LuMessageSquareText } from "react-icons/lu";
-import profileImage from "../assets/Profile_picture.png";
-import resumePdf from "../assets/Resume(2).pdf";
+import profileImage from "../assets/Profile_picture.jpg";
+import resumePdf from "../assets/latest_resume.pdf";
 import { motion } from "framer-motion";
 
 const Hero = () => {
@@ -127,7 +127,7 @@ const Hero = () => {
               marginLeft: 8,
             }}
           >
-            Subhapreet Patro
+            Durga Manohar Mallelli
           </span>
         </Typography>
         <Typography
@@ -239,7 +239,7 @@ const Hero = () => {
           >
             <IconButton
               component="a"
-              href="https://github.com/Subhapreet21"
+              href="https://github.com/DurgaManohar-15"
               target="_blank"
               aria-label="github"
               sx={{
@@ -273,7 +273,7 @@ const Hero = () => {
           >
             <IconButton
               component="a"
-              href="https://www.linkedin.com/in/subhapreet-patro-444a02277"
+              href="https://www.linkedin.com/in/durga-manohar-mallelli-475ab6253/"
               target="_blank"
               aria-label="linkedin"
               sx={{

@@ -13,73 +13,31 @@ import {
   CardActions,
 } from "@mui/material";
 import Carousel from "./Carousel";
-import adminDashboardImg from "../assets/projects/Admin_Dashboard.png";
-import cropAdvisorImg from "../assets/projects/Crop_Advisor.png";
-import heartDiseaseImg from "../assets/projects/Heart_Disease_Prediction2.png";
-import studentManagementImg from "../assets/projects/Student_Mangement_System.png";
-import aiChatbotImg from "../assets/projects/AI_Chatbot.png";
-import cargoTrackingImg from "../assets/projects/Cargo_Scanner.png";
-import lmsConversoImg from "../assets/projects/LMS_Converso.png";
+import staysync from "../assets/projects/Stay_Sync.jpg";
+import onlineshoping from "../assets/projects/online_shopping_app.png";
+// import heartDiseaseImg from "../assets/projects/Heart_Disease_Prediction2.png";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const projectsData = [
   {
     id: 1,
-    title: "Admin Dashboard",
+    title: "Stay Sync",
     description:
-      "Developed a responsive MERN-based admin panel with modular UI components, secure authentication, and role-based access. Integrated Nivo and Chart.js for interactive financial dashboards, along with dynamic theming and a smart navigation system. ",
-    image: adminDashboardImg,
-    link: "https://github.com/Subhapreet21/CLEVER-DASH",
+      "Developed a full-stack web application, Stay Sync, to streamline hostel and PG search for students. Implemented secure login/signup with MySQL, an intuitive search system for institutions, and categorized hostel listings with detailed views. Built separate dashboards for admins and students, enabling hostel owners to manage listings and students to explore and book accommodations, with integrated email notifications for bookings.",
+    image: staysync,
+    link: "https://github.com/DurgaManohar-15/StaySync",
   },
-  {
-    id: 2,
-    title: "Crop Advisor",
-    description:
-      "Built an ML-powered agriculture assistant using a Random Forest model to recommend crops based on soil and climate data. Integrated image-based plant disease detection and real-time data visualizations to help farmers make informed decisions through an intuitive Streamlit interface. ",
-    image: cropAdvisorImg,
-    link: "https://github.com/Subhapreet21/Agri-Smart",
-  },
+
   {
     id: 3,
-    title: "Heart Disease Prediction",
+    title: "Online Shopping App",
     description:
       "Built a GUI-based medical app using Logistic Regression to predict heart disease risk. Enabled real-time health data input, visualized key metrics using Matplotlib, and ensured secure patient data storage with MySQL through a user-friendly Tkinter interface. ",
-    image: heartDiseaseImg,
-    link: "https://github.com/Subhapreet21/CardioSmart-360",
+    image: onlineshoping,
+    link: "https://github.com/DurgaManohar-15/onlineshoping",
   },
-  {
-    id: 4,
-    title: "Student Information Management System",
-    description:
-      "Developed a GUI-based student record system with login authentication, data management, and image storage. Integrated search and password reset features, and visualized academic performance using Matplotlib for effective progress tracking.",
-    image: studentManagementImg,
-    link: "https://github.com/Subhapreet21/Students-Atlas",
-  },
-  {
-    id: 5,
-    title: "AI Chatbot",
-    description:
-      "Built a real-time chat application that leverages the Gemini API to provide AI-powered responses, integrates voice input for hands-free communication, and offers customizable themes, delivering a seamless and interactive user experience for dynamic conversations.",
-    image: aiChatbotImg,
-    link: "https://github.com/Subhapreet21/Chat-Mate",
-  },
-  {
-    id: 6,
-    title: "Cargo Tracking System",
-    description:
-      "Designed a web app for efficient product management and analysis in cargo and inventory systems. It features secure authentication, product registration, and QR code generation, built with React, Node.js/Express, and MongoDB Atlas.",
-    image: cargoTrackingImg,
-    link: "https://github.com/Subhapreet21/Cargo-Scanner",
-  },
-  {
-    id: 7,
-    title: "AI-Powered Learning Platform",
-    description:
-      "Built an AI-driven learning platform with subject-specific companions, real-time voice interactions, secure authentication, and subscription-aware limits—delivering personalized study assistance, smart discovery, and clear progress tracking.",
-    image: lmsConversoImg,
-    link: "https://github.com/Subhapreet21/LMS-SaaS-App",
-  },
+ 
 ];
 
 const Projects = () => {

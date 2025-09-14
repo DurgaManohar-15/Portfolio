@@ -12,127 +12,85 @@ import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import { motion } from "framer-motion";
 
 // Certificate images
-import spokenEnglishImg from "../assets/certificates/Spoken English.jpg";
-import smartEnglishImg from "../assets/certificates/Smart English Basics for Professionals.jpg";
-import pythonEssentialsImg from "../assets/certificates/Python Programming Essentials.jpg";
-import pythonBasicImg from "../assets/certificates/Python Basic Structures.jpg";
-import introPythonImg from "../assets/certificates/Introduction to Python Programming.jpg";
-import introJavaImg from "../assets/certificates/Introduction to Java.jpg";
-import introGenAIImg from "../assets/certificates/Introduction to Generative AI.jpg";
-import foundationsDataImg from "../assets/certificates/Foundations of data analytics.jpg";
-import deepLearningImg from "../assets/certificates/Deep Learning.jpg";
-import deloitteImg from "../assets/certificates/Deloitte Australia - Data Analytics Job Simulation.jpg";
-import accentureImg from "../assets/certificates/Accenture Nordics - Software Engineering Job Simulation.jpg";
-import githubFoundations from "../assets/certificates/Github_Foundations_Part1of2.png";
-import githubFundamentals from "../assets/certificates/GitHub fundamentals-Administration_basics_and_product_features_Part1of2.png";
+
+import microsoftai from "../assets/certificates/Microsoft_Ai_workshop.png";
+import infosysjava from "../assets/certificates/infosys_java.png";
+import infosysdsa from "../assets/certificates/infosys_dsa.png";
+import hpaibeginners from "../assets/certificates/hp_ai_for_beginners.png";
+import genai from "../assets/certificates/gen_ai_simplylearn.png";
+import deldataanl from "../assets/certificates/deloitte_data_analytics_for_job_stimulation.png";
+import deljob from "../assets/certificates/deloitte_tech_job_stimulation.png";
+
 
 // Certificate PDFs
-import spokenEnglishPdf from "../assets/certificates/Spoken English.pdf";
-import smartEnglishPdf from "../assets/certificates/Smart English Basics for Professionals.pdf";
-import pythonEssentialsPdf from "../assets/certificates/Python Programming Essentials.pdf";
-import pythonBasicPdf from "../assets/certificates/Python Basic Structures.pdf";
-import introPythonPdf from "../assets/certificates/Introduction to Python Programming.pdf";
-import introJavaPdf from "../assets/certificates/Introduction to Java.pdf";
-import introGenAIPdf from "../assets/certificates/Introduction to Generative AI.pdf";
-import foundationsDataPdf from "../assets/certificates/Foundations of data analytics.pdf";
-import deepLearningPdf from "../assets/certificates/Deep Learning.pdf";
-import deloittePdf from "../assets/certificates/Deloitte Australia - Data Analytics Job Simulation.pdf";
-import accenturePdf from "../assets/certificates/Accenture Nordics - Software Engineering Job Simulation.pdf";
-import githubFoundationsPdf from "../assets/certificates/GitHub Foundations Part 1 of 2.pdf";
-import githubFundamentalsPdf from "../assets/certificates/GitHub fundamentals - Administration basics and product features Part 1 of 2.pdf";
+
+import microsoftaiPdf from "../assets/certificates/Microsoft_Ai_workshop.pdf";
+import infosysjavaPdf from "../assets/certificates/infosys java.pdf";
+import infosysdsaPdf from "../assets/certificates/infosys DSA.pdf";
+import hpaibeginnerspdf from "../assets/certificates/hp_ai_for_beginners.pdf";
+import genaipdf from "../assets/certificates/generativeAi.pdf";
+import deldataanlpdf from "../assets/certificates/data analysis.pdf";
+import deljobpdf from "../assets/certificates/Deloitte.pdf";
+
+
+// import githubFundamentalsPdf from "../assets/certificates/GitHub fundamentals - Administration basics and product features Part 1 of 2.pdf";
 
 const certifications = [
+
   {
-    title: "Deloitte Australia - Data Analytics Job Simulation",
-    organization: "Forage",
-    issue_date: "May 2025",
-    image: deloitteImg,
-    file: deloittePdf,
-  },
-  {
-    title: "Accenture Nordics - Software Engineering Job Simulation",
-    organization: "Forage",
-    issue_date: "May 2025",
-    image: accentureImg,
-    file: accenturePdf,
-  },
-  {
-    title: "Spoken English",
-    organization: "Great Learning",
-    issue_date: "April 2024",
-    image: spokenEnglishImg,
-    file: spokenEnglishPdf,
-  },
-  {
-    title: "AI For Everyone",
-    organization: "DeepLearning.AI via Coursera",
-    issue_date: "November 2023",
-    image: deepLearningImg,
-    file: deepLearningPdf,
-  },
-  {
-    title: "Foundations: Data, Data, Everywhere",
-    organization: "Google via Coursera",
-    issue_date: "June 2023",
-    image: foundationsDataImg,
-    file: foundationsDataPdf,
-  },
-  {
-    title: "Introduction to Generative AI - Art of the Possible",
-    organization: "AWS Training & Certification",
-    issue_date: "June 2025",
-    image: introGenAIImg,
-    file: introGenAIPdf,
-  },
-  {
-    title: "Introduction to Java",
-    organization: "LearnQuest via Coursera",
-    issue_date: "November 2023",
-    image: introJavaImg,
-    file: introJavaPdf,
-  },
-  {
-    title: "Introduction to Python Programming",
-    organization: "University of Pennsylvania via Coursera",
-    issue_date: "June 2023",
-    image: introPythonImg,
-    file: introPythonPdf,
-  },
-  {
-    title: "Python Basic Structures: Lists, Strings, and Files",
-    organization: "Codio via Coursera",
-    issue_date: "June 2023",
-    image: pythonBasicImg,
-    file: pythonBasicPdf,
-  },
-  {
-    title: "Python Programming Essentials",
-    organization: "Rice University via Coursera",
-    issue_date: "June 2023",
-    image: pythonEssentialsImg,
-    file: pythonEssentialsPdf,
-  },
-  {
-    title: "Smart English Basics for Professionals",
-    organization: "Great Learning",
-    issue_date: "April 2024",
-    image: smartEnglishImg,
-    file: smartEnglishPdf,
-  },
-  {
-    title: "GitHub Foundations Part 1 of 2",
+    title: "Microsoft AI workshop",
     organization: "Microsoft",
-    issue_date: "August 2025",
-    image: githubFoundations,
-    file: githubFoundationsPdf,
+    issue_date: "July 2025",
+    image: microsoftai,
+    file: microsoftaiPdf,
   },
   {
     title:
-      "GitHub fundamentals - Administration basics and product features Part 1 of 2",
-    organization: "Microsoft",
-    issue_date: "August 2025",
-    image: githubFundamentals,
-    file: githubFundamentalsPdf,
+      "Infosys -  Programming using Java",
+    organization: "Infosys",
+    issue_date: "July 2025",
+    image: infosysjava,
+    file: infosysjavaPdf,
+  },
+   {
+    title:
+      "Infosys -  DSA using Java",
+    organization: "Infosys",
+    issue_date: "July 2025",
+    image: infosysdsa,
+    file: infosysdsaPdf,
+  },
+     {
+    title:
+      "HP -  AI for Beginners",
+    organization: "HP",
+    issue_date: "June 2025",
+    image: hpaibeginners,
+    file: hpaibeginnerspdf,
+  },
+       {
+    title:
+      "SimplyLearn -  Gen-AI for Beginners",
+    organization: "SimplyLearn",
+    issue_date: "June 2025",
+    image: genai,
+    file: genaipdf,
+  },
+{
+    title:
+      "Deloitte -   Technology	Job	Simulation",
+    organization: "Deloitte",
+    issue_date: "June 2025",
+    image: deljob,
+    file: deljobpdf,
+  },
+  {
+    title:
+      "Deloitte -    Data	Analytics	Job	Simulation",
+    organization: "Deloitte",
+    issue_date: "June 2025",
+    image: deldataanl,
+    file: deldataanlpdf,
   },
 ];
 

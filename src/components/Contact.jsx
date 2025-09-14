@@ -88,7 +88,9 @@ const Contact = () => {
             onSubmit={handleSubmit}
             style={{ display: "flex", flexDirection: "column", gap: "inherit" }}
           >
-            <input type="hidden" name="to_email" value="your@email.com" />
+            {/* 👇 Change this to your Gmail */}
+            <input type="hidden" name="to_email" value="yourgmail@gmail.com" />
+
             <TextField
               label="Your Name"
               variant="filled"
