@@ -11,7 +11,7 @@ const Footer = () => (
       color: "#888",
     }}
   >
-    &copy; {new Date().getFullYear()} Subhapreet Patro. All rights reserved.
+    &copy; {new Date().getFullYear()} DurgaManohar Mallelli. All rights reserved.
   </footer>
 );
 
