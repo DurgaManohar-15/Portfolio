@@ -11,6 +11,8 @@ import {
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
+const OWNER_EMAIL = "durgamanoharmallelli@gmail.com";
+
 const Contact = () => {
   const formRef = useRef();
   const [isSending, setIsSending] = useState(false);
@@ -23,27 +25,56 @@ const Contact = () => {
     setSendSuccess(false);
     setSendError(false);
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log("SUCCESS!", result.text);
-          setSendSuccess(true);
-          formRef.current.reset();
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          setSendError(true);
-        }
-      )
-      .finally(() => {
-        setIsSending(false);
-      });
+    // Get form data
+    const formData = new FormData(formRef.current);
+    const name = formData.get("from_name");
+    const email = formData.get("from_email");
+    const message = formData.get("message");
+
+    // Create mailto link as fallback
+    const subject = `Contact from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const mailtoLink = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    // Try EmailJS first, fallback to mailto
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (
+      serviceId &&
+      templateId &&
+      publicKey &&
+      serviceId !== "your_service_id_here" &&
+      templateId !== "your_template_id_here" &&
+      publicKey !== "your_public_key_here"
+    ) {
+      // Use EmailJS
+      emailjs
+        .sendForm(serviceId, templateId, formRef.current, publicKey)
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.text);
+            setSendSuccess(true);
+            formRef.current.reset();
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+            setSendError(true);
+          }
+        )
+        .finally(() => {
+          setIsSending(false);
+        });
+    } else {
+      // Fallback to mailto
+      window.location.href = mailtoLink;
+      setSendSuccess(true);
+      formRef.current.reset();
+      setIsSending(false);
+    }
   };
 
   return (
@@ -66,92 +97,118 @@ const Contact = () => {
           Contact Me
         </Typography>
       </motion.div>
+
       <Box
         sx={{
           mt: 2,
           display: "flex",
-          flexDirection: "column",
-          gap: { xs: 1.5, sm: 2 },
-          maxWidth: 600,
+          alignItems: "stretch",
+          justifyContent: "center",
+          maxWidth: 720,
           width: "100%",
           mx: "auto",
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.7 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            style={{ display: "flex", flexDirection: "column", gap: "inherit" }}
+        {/* Contact Form Only */}
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: { xs: 1.5, sm: 2 },
+            }}
           >
-            {/* 👇 Change this to your Gmail */}
-            <input type="hidden" name="to_email" value="yourgmail@gmail.com" />
-
-            <TextField
-              label="Your Name"
-              variant="filled"
-              name="from_name"
-              required
-            />
-            <TextField
-              label="Your Email"
-              variant="filled"
-              type="email"
-              name="from_email"
-              required
-            />
-            <TextField
-              label="Your Message"
-              variant="filled"
-              name="message"
-              required
-              multiline
-              rows={4}
-            />
-            <Box sx={{ position: "relative" }}>
-              <motion.div
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.7 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <form
+                ref={formRef}
+                onSubmit={handleSubmit}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "inherit",
+                }}
               >
-                <Button
-                  type="submit"
-                  variant="contained"
-                  size="large"
-                  disabled={isSending}
-                  sx={{ width: "100%" }}
-                >
-                  Send Message
-                </Button>
-              </motion.div>
-              {isSending && (
-                <CircularProgress
-                  size={24}
-                  sx={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    marginTop: "-12px",
-                    marginLeft: "-12px",
-                  }}
+                {/* Hidden field to set recipient email */}
+                <input type="hidden" name="to_email" value={OWNER_EMAIL} />
+
+                <TextField
+                  label="Your Name"
+                  variant="filled"
+                  name="from_name"
+                  required
+                  fullWidth
                 />
-              )}
-            </Box>
-            {sendSuccess && (
-              <Alert severity="success" sx={{ mt: 2 }}>
-                Thank you for your message! I'll get back to you soon.
-              </Alert>
-            )}
-            {sendError && (
-              <Alert severity="error" sx={{ mt: 2 }}>
-                Something went wrong. Please try again later.
-              </Alert>
-            )}
-          </form>
-        </motion.div>
+                <TextField
+                  label="Your Email"
+                  variant="filled"
+                  type="email"
+                  name="from_email"
+                  required
+                  fullWidth
+                />
+                <TextField
+                  label="Your Message"
+                  variant="filled"
+                  name="message"
+                  required
+                  multiline
+                  rows={4}
+                  fullWidth
+                />
+                <Box sx={{ position: "relative" }}>
+                  <motion.div
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      size="large"
+                      disabled={isSending}
+                      sx={{ width: "100%" }}
+                    >
+                      Send Message
+                    </Button>
+                  </motion.div>
+                  {isSending && (
+                    <CircularProgress
+                      size={24}
+                      sx={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        marginTop: "-12px",
+                        marginLeft: "-12px",
+                      }}
+                    />
+                  )}
+                </Box>
+                {sendSuccess && (
+                  <Alert severity="success" sx={{ mt: 2 }}>
+                    Thank you for your message! I'll get back to you soon.
+                  </Alert>
+                )}
+                {sendError && (
+                  <Alert severity="error" sx={{ mt: 2 }}>
+                    Something went wrong. Please try again later or contact me
+                    directly at{" "}
+                    <a
+                      href={`mailto:${OWNER_EMAIL}`}
+                      style={{ color: "inherit" }}
+                    >
+                      {OWNER_EMAIL}
+                    </a>
+                  </Alert>
+                )}
+              </form>
+            </motion.div>
+          </Box>
+        </Box>
       </Box>
     </Paper>
   );

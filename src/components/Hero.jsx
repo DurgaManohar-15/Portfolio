@@ -46,25 +46,26 @@ const Hero = () => {
         gap: { xs: 4, md: 0 },
       }}
     >
-      {/* Profile Image on top for mobile */}
+      {/* Profile Image on top for mobile - adjusted spacing and fit */}
       <Box
         sx={{
           display: { xs: "flex", md: "none" },
           justifyContent: "center",
           alignItems: "center",
-          mb: { xs: 0.1, sm: 0.5 },
+          mb: { xs: 2, sm: 3 },
         }}
       >
         <Box
           sx={{
-            width: { xs: 200, sm: 230, md: 320, lg: 380 },
-            height: { xs: 200, sm: 230, md: 320, lg: 380 },
+            width: { xs: 220, sm: 260, md: 320, lg: 380 },
+            height: { xs: 220, sm: 260, md: 320, lg: 380 },
             borderRadius: "50%",
             background: theme.palette.primary.main,
-            p: "5px",
+            p: "6px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
           }}
         >
           <Box
@@ -75,6 +76,7 @@ const Hero = () => {
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              objectPosition: "center top",
               borderRadius: "50%",
               background: theme.palette.background.paper,
               display: "block",
@@ -303,7 +305,7 @@ const Hero = () => {
           </motion.div>
         </Stack>
       </Box>
-      {/* Right: Image for desktop */}
+      {/* Right: Image for desktop - adjusted spacing and fit */}
       <Box
         sx={{
           flex: 1,
@@ -319,14 +321,15 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           sx={{
-            width: { md: 320, lg: 380 },
-            height: { md: 320, lg: 380 },
+            width: { md: 360, lg: 420 },
+            height: { md: 360, lg: 420 },
             borderRadius: "50%",
             background: theme.palette.primary.main,
-            p: "5px",
+            p: "6px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            boxShadow: "0 12px 32px rgba(0,0,0,0.12)",
           }}
         >
           <Box
@@ -337,6 +340,7 @@ const Hero = () => {
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              objectPosition: "center top",
               borderRadius: "50%",
               background: theme.palette.background.paper,
               display: "block",

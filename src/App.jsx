@@ -38,22 +38,39 @@ const getDesignTokens = (mode) => ({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 8,
+          borderRadius: 10,
           textTransform: "none",
-          fontWeight: 600,
+          fontWeight: 700,
+          paddingLeft: 14,
+          paddingRight: 14,
+        },
+        contained: {
+          color: "#fff",
+          boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
+          backgroundImage:
+            mode === "light"
+              ? "linear-gradient(90deg, #00bcd4, #2dd4bf)"
+              : "linear-gradient(90deg, #00bcd4, #ff9800)",
+          "&:hover": {
+            filter: "brightness(0.95)",
+            boxShadow: "0 10px 24px rgba(0,0,0,0.16)",
+          },
+        },
+        outlined: {
+          borderWidth: 2,
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 14,
           border: "1px solid",
           borderColor: mode === "light" ? "#a5f3fc" : "#22304a",
           transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
           "&:hover": {
             transform: "translateY(-4px)",
-            boxShadow: "0 4px 20px 0 rgba(0,0,0,0.1)",
+            boxShadow: "0 10px 26px 0 rgba(0,0,0,0.12)",
           },
         },
       },
@@ -63,6 +80,24 @@ const getDesignTokens = (mode) => ({
         root: {
           border: "1px solid",
           borderColor: mode === "light" ? "#a5f3fc" : "#22304a",
+          borderRadius: 14,
+          boxShadow:
+            mode === "light"
+              ? "0 6px 18px rgba(0,0,0,0.08)"
+              : "0 6px 18px rgba(0,0,0,0.3)",
+        },
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        variant: "outlined",
+        fullWidth: true,
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        h2: {
+          letterSpacing: "-0.5px",
         },
       },
     },
@@ -88,6 +123,10 @@ function App() {
             flexGrow: 1,
             p: { xs: 2, sm: 3, md: 4 },
             pl: { sm: "96px" },
+            background: (theme) =>
+              theme.palette.mode === "light"
+                ? "linear-gradient(180deg, #e6fdff 0%, #ffffff 35%, #ffffff 100%)"
+                : "linear-gradient(180deg, #081524 0%, #0a1929 35%, #0a1929 100%)",
           }}
         >
           <div id="hero">
