@@ -92,6 +92,14 @@ const certifications = [
     image: deldataanl,
     file: deldataanlpdf,
   },
+    {
+    title:
+      "CS50’s Introduction to Databases with SQL! ",
+    organization: "Harward University",
+    issue_date: "Oct 2025",
+    image: deldataanl,
+    file: deldataanlpdf,
+  },
 ];
 
 // Helper to sort by date descending (YYYY/MM or Month YYYY)
